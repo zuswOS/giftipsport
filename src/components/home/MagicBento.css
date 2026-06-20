@@ -1,0 +1,112 @@
+.bento-section {
+  position: relative;
+  width: 100%;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.magic-bento-card {
+  --glow-color: 132, 0, 255;
+  --glow-intensity: 0;
+  --glow-radius: 300px;
+
+  position: relative;
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  border: 1px solid hsl(var(--border));
+  overflow: hidden;
+  will-change: transform;
+  grid-column: span 1;
+}
+
+/* Applying grid spans */
+.card-grid .magic-bento-card:nth-child(1) { grid-column: span 2; }
+.card-grid .magic-bento-card:nth-child(4) { grid-column: span 1; }
+.card-grid .magic-bento-card:nth-child(5) { grid-column: span 2; }
+
+
+.magic-bento-card::before {
+  content: '';
+  position: absolute;
+  left: var(--glow-x, 50%);
+  top: var(--glow-y, 50%);
+  width: var(--glow-radius);
+  height: var(--glow-radius);
+  border-radius: 50%;
+  background-image: radial-gradient(
+    circle,
+    rgba(var(--glow-color), 0.5) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  opacity: var(--glow-intensity);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.magic-bento-card__header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.magic-bento-card__label {
+  background-color: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid hsl(var(--primary) / 0.2);
+}
+
+.magic-bento-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.magic-bento-card__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.75rem;
+}
+
+.magic-bento-card__description {
+  font-size: 1rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+  transition: opacity 0.3s ease;
+}
+
+.magic-bento-card--text-autohide:not(:hover) .magic-bento-card__description {
+  opacity: 0;
+}
+
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card-grid .magic-bento-card:nth-child(1),
+  .card-grid .magic-bento-card:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-grid .magic-bento-card {
+    grid-column: span 1 !important;
+  }
+}

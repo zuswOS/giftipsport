@@ -1,0 +1,118 @@
+.gradual-blur {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gradual-blur-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--blur-height, 8rem);
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.8) 20%,
+    hsl(var(--background) / 0.4) 50%,
+    transparent 100%
+  );
+  backdrop-filter: blur(calc(var(--blur-strength, 3) * 1px));
+  -webkit-backdrop-filter: blur(calc(var(--blur-strength, 3) * 1px));
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
+.gradual-blur-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--blur-height, 8rem);
+  background: linear-gradient(
+    to top,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.8) 20%,
+    hsl(var(--background) / 0.4) 50%,
+    transparent 100%
+  );
+  backdrop-filter: blur(calc(var(--blur-strength, 3) * 1px));
+  -webkit-backdrop-filter: blur(calc(var(--blur-strength, 3) * 1px));
+  mask-image: linear-gradient(to top, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
+}
+
+.gradual-blur-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--blur-height, 8rem);
+  background: linear-gradient(
+    to right,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.8) 20%,
+    hsl(var(--background) / 0.4) 50%,
+    transparent 100%
+  );
+  backdrop-filter: blur(calc(var(--blur-strength, 3) * 1px));
+  -webkit-backdrop-filter: blur(calc(var(--blur-strength, 3) * 1px));
+  mask-image: linear-gradient(to right, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
+}
+
+.gradual-blur-right {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: var(--blur-height, 8rem);
+  background: linear-gradient(
+    to left,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.8) 20%,
+    hsl(var(--background) / 0.4) 50%,
+    transparent 100%
+  );
+  backdrop-filter: blur(calc(var(--blur-strength, 3) * 1px));
+  -webkit-backdrop-filter: blur(calc(var(--blur-strength, 3) * 1px));
+  mask-image: linear-gradient(to left, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
+}
+
+/* Dark mode adjustments */
+.dark .gradual-blur-top {
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.9) 20%,
+    hsl(var(--background) / 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.dark .gradual-blur-bottom {
+  background: linear-gradient(
+    to top,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.9) 20%,
+    hsl(var(--background) / 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.dark .gradual-blur-left {
+  background: linear-gradient(
+    to right,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.9) 20%,
+    hsl(var(--background) / 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.dark .gradual-blur-right {
+  background: linear-gradient(
+    to left,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.9) 20%,
+    hsl(var(--background) / 0.5) 50%,
+    transparent 100%
+  );
+}

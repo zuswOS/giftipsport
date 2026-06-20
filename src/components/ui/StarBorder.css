@@ -1,0 +1,64 @@
+.star-border-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  background: linear-gradient(120deg, hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 100%, 0.05));
+  transition: all 0.3s ease;
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.star-border-container:hover {
+  transform: scale(1.05);
+  background: linear-gradient(120deg, hsla(0, 0%, 100%, 0.2), hsla(0, 0%, 100%, 0.1));
+}
+
+.star-border-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250%;
+  height: 250%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    hsla(260, 90%, 80%, 0.8) 0deg,
+    hsla(280, 90%, 80%, 0.5) 60deg,
+    transparent 120deg,
+    transparent 300deg,
+    hsla(260, 90%, 80%, 0.8) 360deg
+  );
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  animation: rotate-glow 5s linear infinite;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.star-border-container .inner-content {
+  position: relative;
+  color: hsl(var(--foreground));
+  font-weight: 600;
+  font-size: 1.125rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-shadow: 0 0 5px hsla(var(--background), 0.5);
+}
+
+@keyframes rotate-glow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
