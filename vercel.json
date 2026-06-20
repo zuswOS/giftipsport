@@ -2,6 +2,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "installCommand": "npm install",
+  "env": {
+    "VITE_SUPABASE_URL": "https://gfnpncaworrnvllulfqq.supabase.co",
+    "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmbnBuY2F3b3JybnZsbHVsZnFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwNDgxNDMsImV4cCI6MjA3NTYyNDE0M30.j4pEXnyEpnyck2HBt4Pz9hHCOeaO7aOx5SmaVP0UNvg"
+  },
   "rewrites": [
     {
       "source": "/(.*)",
