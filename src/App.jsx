@@ -125,7 +125,12 @@ const AppRoutes = () => {
 function App() {
   return (
     <HelmetProvider>
-      <Router>
+      <Router
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <ThemeProvider defaultTheme="dark" storageKey="giftip-theme">
           <AuthProvider>
             <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
