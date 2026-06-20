@@ -104,10 +104,7 @@ const AuthModal = ({ isOpen, onClose, onLoginRedirect }) => {
                     {step === 1 && (
                       <AuthForm 
                         onRegister={handleRegister}
-                        onLoginRedirect={() => {
-                          handleClose();
-                          onLoginRedirect();
-                        }}
+                        onLoginRedirect={onLoginRedirect}
                       />
                     )}
                     {step === 2 && (
